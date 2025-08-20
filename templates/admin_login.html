@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card narrow">
+  <h2>Admin Login</h2>
+  <form method="post" action="{{ url_for('admin_login') }}">
+    <label>Username</label>
+    <input name="username" required placeholder="admin">
+    <p>
+      <label>Password</label>
+     <input type="password" name="password" required placeholder="••••••••">
+    </p>
+      <button type="submit">Login</button>
+  </form>
+
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";background:#f6f7fb;color:#1f2937}
+.container{max-width:980px;margin:0 auto;padding:16px}
+.topbar{background:#111827;color:#fff}.topbar .container{display:flex;align-items:center;justify-content:space-between}
+.topbar h1{font-size:18px;margin:8px 0}.topbar nav a,.topbar nav span{color:#eee;margin-left:12px;text-decoration:none}
+.topbar nav a:hover{text-decoration:underline}
+.footer{padding:24px 0;text-align:center;color:#6b7280}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin:16px 0}
+.card.narrow{max-width:520px;margin:16px auto}
+h2{margin:0 0 12px 0}
+.chat-window{height:380px;overflow:auto;padding:12px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa}
+.msg{padding:10px 12px;border-radius:12px;margin:8px 0;max-width:80%}
+.msg.bot{background:#e5e7eb;align-self:flex-start}
+.msg.user{background:#dbeafe;align-self:flex-end;margin-left:auto}
+.chat-input{display:flex;gap:8px;margin-top:12px}
+.chat-input input{flex:1;padding:10px;border-radius:10px;border:1px solid #d1d5db}
+.chat-input button{padding:10px 16px;border:0;border-radius:10px;background:#111827;color:white;cursor:pointer}
+.chat-input button:hover{opacity:.9}
+.flashwrap{margin:12px 0}.flash{padding:10px;border-radius:8px;margin:6px 0}
+.flash.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+.flash.info{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe}
+.flash.warning{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
+.flash.danger{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.grid-1-2{display:grid;grid-template-columns:1fr;gap:8px}
+.table{display:grid;gap:8px}.row{display:grid;grid-template-columns:60px 1fr 1fr 160px;gap:8px;padding:8px;border:1px solid #eee;border-radius:8px;background:#fcfcfc}
+.row.head{background:#f3f4f6;font-weight:600}
+.row .wrap{white-space:pre-wrap}
+.actions{display:flex;flex-direction:column;gap:6px}
+.actions .danger{background:#991b1b;color:white;border:0;border-radius:8px;padding:6px 10px;cursor:pointer}
+.mb{margin-bottom:12px}
+.welcome{margin-left:12px;color:#9ca3af;font-size:14px}
+@media (max-width: 720px){.row{grid-template-columns:40px 1fr}.row .wrap:nth-child(3), .row .actions{grid-column:1 / -1}}

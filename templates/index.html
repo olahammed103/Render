@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>Student Chatbot</h2>
+  <div id="chat-window" class="chat-window">
+    <div class="msg bot">Hello! Ask me anything about OSPOLY (admissions, registrar, etc.).</div>
+  </div>
+  <div class="chat-input">
+    <input id="user-input" type="text" placeholder="Type your question..." autofocus>
+    <button id="send-btn">Send</button>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

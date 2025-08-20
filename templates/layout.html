@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>{{ app_name }}</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Chatbot</a>
+        <a href="{{ url_for('admin_panel') }}">Admin</a>
+        {% if session.get('admin_id') %}
+          <span class="welcome">Hi, {{ session.get('admin_name') }}</span>
+          <a href="{{ url_for('admin_logout') }}">Logout</a>
+        {% else %}
+          <a href="{{ url_for('admin_login_form') }}">Login</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flashwrap">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <small>&copy; {{ 2025 }} OSPOLY Chatbot WebApp</small>
+    </div>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

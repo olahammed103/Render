@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>Admin Panel</h2>
+  <details open class="mb">
+    <summary><strong>Add New Q&A</strong></summary>
+    <form method="post" action="{{ url_for('faq_new') }}" class="grid-1-2">
+      <label>Question</label>
+      <textarea name="question" required placeholder="Type the student's question"></textarea>
+      <label>Answer</label>
+      <textarea name="answer" required placeholder="Provide a clear, helpful answer"></textarea>
+      <button type="submit">Add</button>
+    </form>
+  </details>
+
+  <h3>All Q&A</h3>
+  {% if faqs %}
+    <div class="table">
+      <div class="row head">
+        <div>ID</div><div>Question</div><div>Answer</div><div>Actions</div>
+      </div>
+      {% for f in faqs %}
+      <div class="row">
+        <div>{{ f.id }}</div>
+        <div class="wrap">{{ f.question }}</div>
+        <div class="wrap">{{ f.answer }}</div>
+        <div class="actions">
+          <form method="post" action="{{ url_for('faq_delete', faq_id=f.id) }}" onsubmit="return confirm('Delete this item?');">
+            <button type="submit" class="danger">Delete</button>
+          </form>
+          <details>
+            <summary>Edit</summary>
+            <form method="post" action="{{ url_for('faq_edit', faq_id=f.id) }}" class="grid-1-2">
+              <label>Question</label>
+              <textarea name="question" required>{{ f.question }}</textarea>
+              <label>Answer</label>
+              <textarea name="answer" required>{{ f.answer }}</textarea>
+              <button type="submit">Save</button>
+            </form>
+          </details>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="muted">No FAQs yet. Add some above.</p>
+  {% endif %}
+</section>
+{% endblock %}
